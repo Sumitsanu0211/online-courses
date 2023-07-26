@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Result</title>
+</head>
+<body>
+    <h1>Exam Result</h1>
+    <p>Thank you for completing the exam.</p>
+    
+    <h2>Score: {{ score }}/{{ total_questions }}</h2>
+    
+    <h3>Questions:</h3>
+    <ul>
+        {% for question, selected_choice in question_choices %}
+        <li>
+            <strong>{{ question.question_text }}</strong>
+            <br>
+            Your answer: {{ selected_choice.choice_text }}
+            {% if selected_choice.is_correct %}
+            <span style="color: green;">(Correct)</span>
+            {% else %}
+            <span style="color: red;">(Incorrect)</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
